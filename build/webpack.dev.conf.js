@@ -10,9 +10,36 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+
+//new start
+let glob = require('glob');
+const express = require('express');
+const app = express();
+let apiRoutes = express.Router()
+let appData = require('../static/json/config');
+let getApi = appData['get'];//所有的get请求
+let postApi = appData['post'];//所有的post请求
+
+//查找所有的json文件
+let entryJS = {};
+entryJS = glob.sync('./static/json/**/*.json').reduce(function (prev, curr) {
+    prev[curr.slice(7)] = '.' + curr;
+    return prev;
+}, {});
+
+//合并所有的json文件到一个json中
+let jsonData = {};
+for (let i in entryJS) {
+    let data = require(entryJS[i]);
+    jsonData = Object.assign(jsonData, data);
+}
+
+app.use('/api', apiRoutes);
+//new end
+
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
-
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -42,7 +69,21 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+      before(app) {
+          //get 第三版
+          for (let i in getApi) {
+              app.get(getApi[i], function (req, res) {
+                  res.json(jsonData[i]);
+              });
+          }
+
+          for (let j in postApi) {
+              app.post(postApi[j], function (req, res) {
+                  res.json(jsonData[j]);
+              });
+          }
+      }
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -67,6 +108,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ])
   ]
 })
+
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
