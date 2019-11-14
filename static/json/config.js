@@ -16,23 +16,25 @@
 module.exports= data ;*/
 
 var data = {
-    // url为请求的地址
+  // url为请求的地址
 
-    // get请求Api
-    get: {
-        top: '/api/top',
-        /*goods: '/api/goods',
-        tableList: '/api/tableList',
-        strategyDetail: '/miscourse/shelfstrategy/shelfstrategydetail'*/
-    },
+  // get请求Api
+  get: {
+    top: '/api/top',
+    slides: '/api/slides'
+    /*goods: '/api/goods',
+    tableList: '/api/tableList',
+    strategyDetail: '/miscourse/shelfstrategy/shelfstrategydetail'*/
+  },
 
-    // post请求Api
-    post: {
-        top: '/api/top',
-        /*strategyEdit: '/miscourse/shelfstrategy/shelfstrategyupdate',
-        strategyAdd: '/miscourse/shelfstrategy/shelfstrategycreate',
-        uploadfileimg: '/course/api/uploadfileimg'*/
-    }
+  // post请求Api
+  post: {
+    top: '/api/top',
+    slides: '/api/slides'
+    /*strategyEdit: '/miscourse/shelfstrategy/shelfstrategyupdate',
+    strategyAdd: '/miscourse/shelfstrategy/shelfstrategycreate',
+    uploadfileimg: '/course/api/uploadfileimg'*/
+  }
 };
 
 module.exports = data;

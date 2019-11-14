@@ -23,15 +23,15 @@ let postApi = appData['post'];//所有的post请求
 //查找所有的json文件
 let entryJS = {};
 entryJS = glob.sync('./static/json/**/*.json').reduce(function (prev, curr) {
-    prev[curr.slice(7)] = '.' + curr;
-    return prev;
+  prev[curr.slice(7)] = '.' + curr;
+  return prev;
 }, {});
 
 //合并所有的json文件到一个json中
 let jsonData = {};
 for (let i in entryJS) {
-    let data = require(entryJS[i]);
-    jsonData = Object.assign(jsonData, data);
+  let data = require(entryJS[i]);
+  jsonData = Object.assign(jsonData, data);
 }
 
 app.use('/api', apiRoutes);
@@ -70,20 +70,20 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-      before(app) {
-          //get 第三版
-          for (let i in getApi) {
-              app.get(getApi[i], function (req, res) {
-                  res.json(jsonData[i]);
-              });
-          }
-
-          for (let j in postApi) {
-              app.post(postApi[j], function (req, res) {
-                  res.json(jsonData[j]);
-              });
-          }
+    before(app) {
+      //get 第三版
+            for (let i in getApi) {
+        app.get(getApi[i], (req, res)=> {
+          res.json(jsonData[i]);
+        });
       }
+      //post 第三版
+            for (let j in postApi) {
+        app.post(postApi[j], (req, res)=> {
+          res.json(jsonData[j]);
+        });
+      }
+    }
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -127,8 +127,8 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+          ? utils.createNotifierCallback()
+          : undefined
       }))
 
       resolve(devWebpackConfig)
