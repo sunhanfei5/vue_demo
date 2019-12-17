@@ -1,0 +1,101 @@
+{
+  "top":{
+    "productList": {
+      "pc": {
+        "title" : "PC产品",
+        "list": [
+          {
+            "title": "数据统计",
+            "pageUrl": "/products/statistics",
+            "hot": true
+          },
+          {
+            "title": "数据预测",
+            "pageUrl": "/products/forecast"
+          },
+          {
+            "title": "流量分析",
+            "pageUrl": "http://baidu.com"
+          },
+          {
+            "title": "广告发布",
+            "pageUrl": "http://baidu.com"
+          }
+        ]
+
+      },
+      "app": {
+        "title" : "应用类产品",
+        "list": [
+          {
+            "title": "91助手",
+            "pageUrl": "/products/91Assistant",
+            "hot": true
+          },
+          {
+            "title": "产品助手",
+            "pageUrl": "/products/productAssistant"
+          },
+          {
+            "title": "智能地图",
+            "pageUrl": "https://map.baidu.com/"
+          },
+          {
+            "title": "团队语音",
+            "pageUrl": "http://baidu.com"
+          }
+        ]
+      }
+    },
+    "newList": [
+      {
+        "title": "澎湃动力，从自变油&火花塞养护之道说起。",
+        "pageUrl": "http://baidu.com",
+        "hot": true
+      },
+      {
+        "title": "夏日减肥指南，请查收。",
+        "pageUrl": "http://baidu.com"
+      },
+      {
+        "title": "后顾无忧，尽享安心与愉悦。",
+        "pageUrl": "http://baidu.com"
+      },
+      {
+        "title": "佳节团圆聚福利，无忧出行享关怀。",
+        "pageUrl": "http://baidu.com"
+      }
+    ],
+    "boardList": [
+      {
+        "title": "数据统计",
+        "description": "开放产品是一款开放产品",
+        "imgUrl": "/static/images/top/img_idea01.png",
+        "pageUrl": "/products/statistics",
+        "saleOut": false
+      },
+      {
+        "title": "数据预测",
+        "description": "品牌营销能帮助你的产品更好的找到定位",
+        "imgUrl": "/static/images/top/img_idea02.png",
+        "pageUrl": "/products/forecast",
+        "saleOut": false
+      },
+      {
+        "title": "91助手",
+        "description": "使命必达快速迭代永远保护最前端的速度",
+        "imgUrl": "/static/images/top/img_idea03.png",
+        "pageUrl": "/products/91Assistant",
+        "saleOut": true
+      },
+      {
+        "title": "产品助手",
+        "description": "帮你勇闯高峰，达到失业高峰",
+        "imgUrl": "/static/images/top/img_idea04.png",
+        "pageUrl": "/products/productAssistant",
+        "saleOut": false
+      }
+
+    ]
+  }
+}

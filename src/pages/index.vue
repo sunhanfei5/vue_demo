@@ -1,5 +1,5 @@
 <template>
-  <div id="index-wrap" ref="ele">
+  <div id="index-wrap" class="app-content-inner" ref="ele">
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
@@ -7,7 +7,7 @@
           <h3>{{ product.title }}</h3>
           <ul>
             <li v-for="(item , index) in product.list" v-bind:class="'item-'+index">
-              <a v-bind:href="item.url">{{item.title}}</a>
+              <a v-bind:href="item.pageUrl">{{item.title}}</a>
               <span class="hot-icon" v-if="item.hot">HOT</span>
             </li>
 
@@ -18,8 +18,8 @@
         <h2>最新消息</h2>
         <div class="index-left-box">
           <ul>
-            <li v-for=" newItem in newList ">
-              <a :href="newItem.url">{{newItem.title}}</a>
+            <li v-for="newItem in newList ">
+              <a :href="newItem.pageUrl">{{newItem.title}}</a>
               <span class="hot-icon" v-if="newItem.hot">HOT</span>
             </li>
           </ul>
@@ -27,19 +27,20 @@
       </div>
     </div>
     <div class="index-right">
-      <slide v-if="flag" :slides="slides" :inv-time="invTime" @on-change="doSomethingFromSlide"></slide>
+      <slide :slides="slides" :inv-time="invTime" @on-change="doSomethingFromSlide"></slide>
       <div class="index-right-board">
         <div class="index-right-item" v-for="item in boardList">
-          <div class="index-right-item-inner">
-            <div class="img"><img :src="item.imgUrl" :alt="item.title"></div>
-            <div class="text">
-              <h2>{{item.title}}</h2>
-              <p>{{item.description}}</p>
-              <div class="index-right-item-button">
-                <a class="button" href="">立即购买</a>
+            <div class="index-right-item-inner">
+              <div class="img"><img :src="item.imgUrl" :alt="item.title"></div>
+              <div class="text">
+                <h2>{{item.title}}</h2>
+                <p>{{item.description}}</p>
+                <div class="index-right-item-button">
+                  <router-link :to="item.pageUrl" class="button" >立即购买
+                  </router-link>
+                </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -54,105 +55,126 @@
         data () {
             return {
                 flag: false,//让父组件异步获取数据完成后再加载子组件
-                invTime: 3000,
-                productList : {},
-                newList: {},
-                boardList: {},
-                slides: []
-                /*productList: {
-                    pc: {
-                        title : 'PC产品',
-                        list: [
+                invTime:4000,
+                productList : {
+                    "pc": {
+                        "title" : "PC产品",
+                        "list": [
                             {
-                                title: '数据统计',
-                                url: 'http://baidu.com',
-                                hot: true
+                                "title": "数据统计",
+                                "pageUrl": "/products/statistics",
+                                "hot": true
                             },
                             {
-                                title: '数据预测',
-                                url: 'http://baidu.com'
+                                "title": "数据预测",
+                                "pageUrl": "/products/forecast"
                             },
                             {
-                                title: '流量分析',
-                                url: 'http://baidu.com'
+                                "title": "流量分析",
+                                "pageUrl": "http://baidu.com"
                             },
                             {
-                                title: '广告发布',
-                                url: 'http://baidu.com'
-                            },
+                                "title": "广告发布",
+                                "pageUrl": "http://baidu.com"
+                            }
                         ]
 
                     },
-                    app: {
-                        title : '应用类产品',
-                        list: [
+                    "app": {
+                        "title" : "应用类产品",
+                        "list": [
                             {
-                                title: '91助手',
-                                url: 'http://baidu.com',
-                                hot: true
+                                "title": "91助手",
+                                "pageUrl": "/products/91Assistant",
+                                "hot": true
                             },
                             {
-                                title: '产品助手',
-                                url: 'http://baidu.com'
+                                "title": "产品助手",
+                                "pageUrl": "/products/productAssistant"
                             },
                             {
-                                title: '智能地图',
-                                url: 'https://map.baidu.com/'
+                                "title": "智能地图",
+                                "pageUrl": "https://map.baidu.com/"
                             },
                             {
-                                title: '团队语音',
-                                url: 'http://baidu.com'
-                            },
+                                "title": "团队语音",
+                                "pageUrl": "http://baidu.com"
+                            }
                         ]
                     }
                 },
                 newList: [
                     {
-                        title: '澎湃动力，从自变油&火花塞养护之道说起。',
-                        url: 'http://baidu.com',
-                        hot: true
+                        "title": "澎湃动力，从自变油&火花塞养护之道说起。",
+                        "pageUrl": "http://baidu.com",
+                        "hot": true
                     },
                     {
-                        title: '夏日减肥指南，请查收。',
-                        url: 'http://baidu.com'
+                        "title": "夏日减肥指南，请查收。",
+                        "pageUrl": "http://baidu.com"
                     },
                     {
-                        title: '后顾无忧，尽享安心与愉悦。',
-                        url: 'http://baidu.com'
+                        "title": "后顾无忧，尽享安心与愉悦。",
+                        "pageUrl": "http://baidu.com"
                     },
                     {
-                        title: '佳节团圆聚福利，无忧出行享关怀。',
-                        url: 'http://baidu.com'
+                        "title": "佳节团圆聚福利，无忧出行享关怀。",
+                        "pageUrl": "http://baidu.com"
                     }
                 ],
                 boardList: [
                     {
-                        title: '开放产品',
-                        description: '开放产品是一款开放产品',
-                        //imgUrl: require('../assets/images/img_idea01.png'),//这如果直接写静态路径需要路径放入static里,如果卸载assets中需要加require
-                        imgUrl: '/static/images/img_idea01.png',
-                        saleOut: false
+                        "title": "数据统计",
+                        "description": "开放产品是一款开放产品",
+                        "imgUrl": "./static/images/top/img_idea01.png",
+                        "pageUrl": "/products/statistics",
+                        "saleOut": false
                     },
                     {
-                        title: '品牌营销',
-                        description: '品牌营销能帮助你的产品更好的找到定位',
-                        imgUrl: '/static/images/img_idea02.png',
-                        saleOut: false
+                        "title": "数据预测",
+                        "description": "品牌营销能帮助你的产品更好的找到定位",
+                        "imgUrl": "./static/images/top/img_idea02.png",
+                        "pageUrl": "/products/forecast",
+                        "saleOut": false
                     },
                     {
-                        title: '使命必达',
-                        description: '使命必达快速迭代永远保护最前端的速度',
-                        imgUrl: '/static/images/img_idea03.png',
-                        saleOut: true
+                        "title": "91助手",
+                        "description": "使命必达快速迭代永远保护最前端的速度",
+                        "imgUrl": "./static/images/top/img_idea03.png",
+                        "pageUrl": "/products/91Assistant",
+                        "saleOut": true
                     },
                     {
-                        title: '永攀高峰',
-                        description: '帮你勇闯高峰，达到失业高峰',
-                        imgUrl: '/static/images/img_idea04.png',
-                        saleOut: false
+                        "title": "产品助手",
+                        "description": "帮你勇闯高峰，达到失业高峰",
+                        "imgUrl": "./static/images/top/img_idea04.png",
+                        "pageUrl": "/products/productAssistant",
+                        "saleOut": false
                     }
 
-                ]*/
+                ],
+                slides: [
+                    {
+                        "src": "static/images/slides/img01.jpg",
+                        "title": "标题1",
+                        "href": "detail/demo1"
+                    },
+                    {
+                        "src": "static/images/slides/img02.jpg",
+                        "title": "标题2——如果标题真的真的真的很长，我们可以隐藏掉。",
+                        "href": "detail/demo2"
+                    },
+                    {
+                        "src": "static/images/slides/img03.jpg",
+                        "title": "标题3",
+                        "href": "detail/demo3"
+                    },
+                    {
+                        "src": "static/images/slides/img04.jpg",
+                        "title": "标题4",
+                        "href": "detail/demo4"
+                    }
+                ]
             }
         },
         created () {
@@ -205,7 +227,7 @@
 
 
             /*多次请求*/
-            this.$axios
+            /*this.$axios
                 .all([
                         this.$axios.get('api/top'),
                         this.$axios.post('api/slides',{first: this.invTime})
@@ -220,23 +242,20 @@
                     this.slides = slideDataList.data;
                     this.flag = true;
 
-                    // console.log(slideDataList.data)
-                    // console.log(typeof slideDataList.data)
                 }))
                 .catch((err) => {
                     console.error(err)
-                });
+                });*/
         },
         computed: {
 
         },
         methods: {
-            doSomethingFromSlide () {
-              console.log('doSomethingFromSlide run!')
+            doSomethingFromSlide (data) {/*从slide子组件传来的数据*/
+              // console.log(data +'doSomethingFromSlide run!')
             }
         },
         mounted(){
-
         },
 
     }

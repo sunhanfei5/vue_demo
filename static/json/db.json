@@ -1,0 +1,402 @@
+{
+  "logIn": {
+    "code": 1,
+    "userName": "成功啦"
+  },
+  "logInError": {
+    "code": 2
+  },
+  "top":{
+    "productList": {
+      "pc": {
+        "title" : "PC产品",
+        "list": [
+          {
+            "title": "数据统计",
+            "pageUrl": "/products/statistics",
+            "hot": true
+          },
+          {
+            "title": "数据预测",
+            "pageUrl": "/products/forecast"
+          },
+          {
+            "title": "流量分析",
+            "pageUrl": "http://baidu.com"
+          },
+          {
+            "title": "广告发布",
+            "pageUrl": "http://baidu.com"
+          }
+        ]
+
+      },
+      "app": {
+        "title" : "应用类产品",
+        "list": [
+          {
+            "title": "91助手",
+            "pageUrl": "/products/91Assistant",
+            "hot": true
+          },
+          {
+            "title": "产品助手",
+            "pageUrl": "/products/productAssistant"
+          },
+          {
+            "title": "智能地图",
+            "pageUrl": "https://map.baidu.com/"
+          },
+          {
+            "title": "团队语音",
+            "pageUrl": "http://baidu.com"
+          }
+        ]
+      }
+    },
+    "newList": [
+      {
+        "title": "澎湃动力，从自变油&火花塞养护之道说起。",
+        "pageUrl": "http://baidu.com",
+        "hot": true
+      },
+      {
+        "title": "夏日减肥指南，请查收。",
+        "pageUrl": "http://baidu.com"
+      },
+      {
+        "title": "后顾无忧，尽享安心与愉悦。",
+        "pageUrl": "http://baidu.com"
+      },
+      {
+        "title": "佳节团圆聚福利，无忧出行享关怀。",
+        "pageUrl": "http://baidu.com"
+      }
+    ],
+    "boardList": [
+      {
+        "title": "数据统计",
+        "description": "开放产品是一款开放产品",
+        "imgUrl": "static/images/top/img_idea01.png",
+        "pageUrl": "products/statistics",
+        "saleOut": false
+      },
+      {
+        "title": "数据预测",
+        "description": "品牌营销能帮助你的产品更好的找到定位",
+        "imgUrl": "static/images/top/img_idea02.png",
+        "pageUrl": "products/forecast",
+        "saleOut": false
+      },
+      {
+        "title": "91助手",
+        "description": "使命必达快速迭代永远保护最前端的速度",
+        "imgUrl": "static/images/top/img_idea03.png",
+        "pageUrl": "products/91Assistant",
+        "saleOut": true
+      },
+      {
+        "title": "产品助手",
+        "description": "帮你勇闯高峰，达到失业高峰",
+        "imgUrl": "static/images/top/img_idea04.png",
+        "pageUrl": "products/productAssistant",
+        "saleOut": false
+      }
+
+    ]
+  },
+  "slides":[
+    {
+      "src": "static/images/slides/img01.jpg",
+      "title": "标题1",
+      "href": "detail/demo1"
+    },
+    {
+      "src": "static/images/slides/img02.jpg",
+      "title": "标题2——如果标题真的真的真的很长，我们可以隐藏掉。",
+      "href": "detail/demo2"
+    },
+    {
+      "src": "static/images/slides/img03.jpg",
+      "title": "标题3",
+      "href": "detail/demo3"
+    },
+    {
+      "src": "static/images/slides/img04.jpg",
+      "title": "标题4",
+      "href": "detail/demo4"
+    }
+  ],
+  "products": {
+    "productsTypes":[
+      {
+        "label": "入门版",
+        "value": 0
+      },
+      {
+        "label": "中级版",
+        "value": 1
+      },
+      {
+        "label": "高级版",
+        "value": 2
+      }
+    ],
+    "productsBuys":[
+      {
+        "label": "2",
+        "value": 0
+      }
+    ]
+  },
+  "getPrice": {
+    "amount" : 1500
+  },
+  "jobList":[
+    {
+      "job": "后端研发工程师",
+      "position": "北京、武汉",
+      "detail": {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责大数据产品的后端研发工作；",
+            "负责存储、查询、导入等相关模块的具体开发与维护；",
+            "提升产品整体的运行效率与稳定性。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机相关专业；",
+            "对大数据方向感兴趣，乐于帮助客户实现数据驱动；",
+            "计算机基础知识扎实，熟悉主流开发语言及操作系统原理，对分布式系统具有浓厚兴趣；",
+            "对接触各种互联网产品感兴趣，乐于培养自身的产品意识；",
+            "快速学习能力；主动性强。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "前端工程师",
+      "position": "北京",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责数据分析产品的 Web 前端的开发；",
+            "负责 Web 前端数据接入相关 SDK 和工具的开发；",
+            "参与项目数据采集方案的评审，依据客户需求给出合理的数据采集方案；",
+            "与产品设计师一起，优化整个产品的使用流程，并为使用者提供更好的数据可视化展现效果。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科或本科以上学历，计算机相关专业者优先；",
+            "熟悉 HTML/CSS/JavaScript 等前端相关技术，有一定面向对象编程思想；",
+            "熟悉 W3C 标准，对表现与数据分离、Web 语义化等有深刻理解；",
+            "无线 HTML5 研发经验者优先，有大数据相关产品研发经验者优先；",
+            "良好的沟通与表达能力、思路清晰，较强的协作能力；"
+          ]
+        }
+      }
+    },
+    {
+      "job": "Android SDK 研发工程师",
+      "position": "北京",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "分负责神策 Android SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "有扎实的 Java 语言基础、精通 Android 体系结构，熟悉 Framework 层；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "有完整的 Android 项目经验；",
+            "熟悉各种主流手机特性，深刻理解手机客户端开发特点；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "iOS SDK 研发工程师",
+      "position": "上海、合肥",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责神策 iOS SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "精通 Object-C、RunTime 等 iOS 主流开发技术；",
+            "熟悉各个不同版本 iOS 的特点；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "数据分析师",
+      "position": "上海",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责神策 iOS SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "精通 Object-C、RunTime 等 iOS 主流开发技术；",
+            "熟悉各个不同版本 iOS 的特点；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "技术顾问（iOS / Android / JS）",
+      "position": "成都",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责神策 iOS SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "精通 Object-C、RunTime 等 iOS 主流开发技术；",
+            "熟悉各个不同版本 iOS 的特点；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "实施工程师",
+      "position": "上海",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责神策 iOS SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "精通 Object-C、RunTime 等 iOS 主流开发技术；",
+            "熟悉各个不同版本 iOS 的特点；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "销售顾问",
+      "position": "成都",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责神策 iOS SDK 的设计、开发、优化；",
+            "准确地将客户需求传达给产品研发团队，并进行必要的整理和归纳。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机或相关专业；",
+            "精通 Object-C、RunTime 等 iOS 主流开发技术；",
+            "熟悉各个不同版本 iOS 的特点；",
+            "精通多线程和网络编程，对高性能程序设计、架构有较多的工程经验；",
+            "具备良好的团队协作能力、沟通能力和学习能力，有责任感。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "机器学习算法工程师",
+      "position": "北京、武汉",
+      "detail": {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责大数据产品的后端研发工作；",
+            "负责存储、查询、导入等相关模块的具体开发与维护；",
+            "提升产品整体的运行效率与稳定性。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科及以上学历，计算机相关专业；",
+            "对大数据方向感兴趣，乐于帮助客户实现数据驱动；",
+            "计算机基础知识扎实，熟悉主流开发语言及操作系统原理，对分布式系统具有浓厚兴趣；",
+            "对接触各种互联网产品感兴趣，乐于培养自身的产品意识；",
+            "快速学习能力；主动性强。"
+          ]
+        }
+      }
+    },
+    {
+      "job": "全栈工程师",
+      "position": "北京",
+      "detail":
+      {
+        "duty" :{
+          "title" : "工作职责：",
+          "list" : [
+            "负责数据分析产品的 Web 前端的开发；",
+            "负责 Web 前端数据接入相关 SDK 和工具的开发；",
+            "参与项目数据采集方案的评审，依据客户需求给出合理的数据采集方案；",
+            "与产品设计师一起，优化整个产品的使用流程，并为使用者提供更好的数据可视化展现效果。"
+          ]
+        },
+        "require" : {
+          "title" : "岗位要求：",
+          "list" : [
+            "专科或本科以上学历，计算机相关专业者优先；",
+            "熟悉 HTML/CSS/JavaScript 等前端相关技术，有一定面向对象编程思想；",
+            "熟悉 W3C 标准，对表现与数据分离、Web 语义化等有深刻理解；",
+            "无线 HTML5 研发经验者优先，有大数据相关产品研发经验者优先；",
+            "良好的沟通与表达能力、思路清晰，较强的协作能力；"
+          ]
+        }
+      }
+    }
+  ]
+}
