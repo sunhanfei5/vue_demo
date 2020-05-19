@@ -207,10 +207,10 @@
 .news{
   #video{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    height: 170%;
-    transform: translateX(-50%) translateY(-50%);
+    top: -20%;
+    left: 0;
+    width: 100%;
+    /*<!--transform: translateX(-50%) translateY(-50%);-->*/
   }
 }
 </style>

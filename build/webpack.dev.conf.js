@@ -22,7 +22,7 @@ let postApi = appData['post'];//所有的post请求
 
 //查找所有的json文件
 let entryJS = {};
-entryJS = glob.sync('./static/json/**/*.json').reduce(function (prev, curr) {
+entryJS = glob.sync('../static/json/**/*.json').reduce(function (prev, curr) {
   prev[curr.slice(7)] = '.' + curr;
   return prev;
 }, {});
@@ -72,13 +72,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     before(app) {
       //get 第三版
-            for (let i in getApi) {
+      for (let i in getApi) {
         app.get(getApi[i], (req, res)=> {
           res.json(jsonData[i]);
         });
       }
       //post 第三版
-            for (let j in postApi) {
+      for (let j in postApi) {
         app.post(postApi[j], (req, res)=> {
           res.json(jsonData[j]);
         });

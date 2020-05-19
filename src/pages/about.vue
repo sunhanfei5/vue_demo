@@ -14,7 +14,7 @@
     <!--</keep-alive>-->
     <!--路由匹配到的组件将显示在这里-->
 
-    <!--购物链接 start-->
+    <!--链接 start-->
     <div id="icon_event">
       <div class="cart">
         <img class="icon" src="../../static/images/about/cart.png" alt="Icon"/>
@@ -46,7 +46,7 @@
         </ul>
       </div>
     </div>
-    <!--购物链接 end-->
+    <!--链接 end-->
 
     <!--上下翻页按钮 start-->
     <span class="prevPage"><i class="el-icon-arrow-up"></i></span>

@@ -14,8 +14,14 @@ import joinUsPage from '../pages/about/joinUs'
 import contactPage from '../pages/about/contact'
 
 Vue.use(Router)
+
+/*vue项目路由跳转时控制台出现NavigationDuplicated错误*/
 const originalPush = Router.prototype.push;
-Router.prototype.push = function push(location) {   return originalPush.call(this, location).catch(err => err) };
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+};
+
+/*配置路径*/
 let _router = new Router({
   mode: 'hash',
   routes: [
@@ -92,7 +98,6 @@ _router.afterEach((to, from) => {
   // console.log('from=' + from.name)
 
   // var menu = $('.nav li')
-  // menu.removeClass('selected')
 
   var pos = String(to.name).substr(0, 3)
   var path = String(to.fullPath)

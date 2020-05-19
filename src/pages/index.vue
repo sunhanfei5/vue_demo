@@ -30,19 +30,20 @@
       <slide :slides="slides" :inv-time="invTime" @on-change="doSomethingFromSlide"></slide>
       <div class="index-right-board">
         <div class="index-right-item" v-for="item in boardList">
-            <div class="index-right-item-inner">
-              <div class="img"><img :src="item.imgUrl" :alt="item.title"></div>
-              <div class="text">
-                <h2>{{item.title}}</h2>
-                <p>{{item.description}}</p>
-                <div class="index-right-item-button">
-                  <router-link :to="item.pageUrl" class="button" >立即购买
-                  </router-link>
-                </div>
+          <div class="index-right-item-inner">
+            <div class="img"><img :src="item.imgUrl" :alt="item.title"></div>
+            <div class="text">
+              <h2>{{item.title}}</h2>
+              <p>{{item.description}}</p>
+              <div class="index-right-item-button">
+                <router-link :to="item.pageUrl" class="button" >立即购买
+                </router-link>
               </div>
             </div>
+          </div>
         </div>
       </div>
+      <div id="charts"></div>
     </div>
   </div>
 </template>
@@ -56,7 +57,12 @@
             return {
                 flag: false,//让父组件异步获取数据完成后再加载子组件
                 invTime:4000,
-                productList : {
+                myChart:Object,
+                productList:null,
+                newList:null,
+                boardList:null,
+                slides:null,
+               /* productList : {
                     "pc": {
                         "title" : "PC产品",
                         "list": [
@@ -174,7 +180,7 @@
                         "title": "标题4",
                         "href": "detail/demo4"
                     }
-                ]
+                ]*/
             }
         },
         created () {
@@ -192,45 +198,29 @@
                     (err)=>{
                         console.log(err)
                     })*/
-
-            /*用axios 静态地址*/
-            /*this.$axios
-                .get('/static/json/index.json')
-                .then(
-                    (dataList)=>{
-                        this.productList = dataList.data.productList;
-                        this.newList = dataList.data.newList;
-                        this.boardList = dataList.data.boardList;
-                        console.log(this.productList)
-                        console.log(dataList.data.productList)
-                    },
-                    (err)=>{
-                        console.log(err)
-                    })*/
-
             /*用axios 模拟服务器*/
-             /*this.$axios
-                 .post('api/top',{})
-                 .then(
-                     (dataList)=>{
-                         this.productList = dataList.data.productList;
-                         this.newList = dataList.data.newList;
-                         this.boardList = dataList.data.boardList;
-                     },
-                     /!*(err)=>{
-                         console.log(err)
-                     }*!/
-                 )
-                 .catch((err) => {
-                     console.error(err)
-                 })*/
+            /* this.$axios
+               .post('api/top',{})
+               .then(
+                   (dataList)=>{
+                       this.productList = dataList.data.productList;
+                       this.newList = dataList.data.newList;
+                       this.boardList = dataList.data.boardList;
+                   },
+                   /!*(err)=>{
+                       console.log(err)
+                   }*!/
+               )
+               .catch((err) => {
+                   console.error(err)
+               }) */
 
 
             /*多次请求*/
-            /*this.$axios
+            this.$axios
                 .all([
-                        this.$axios.get('api/top'),
-                        this.$axios.post('api/slides',{first: this.invTime})
+                        this.$axios.post('api/top'),//首页
+                        this.$axios.post('api/slides',{first: this.invTime})//侧边栏
                     ])
                 .then(this.$axios.spread((topDataList, slideDataList)=> {
                     // 两个请求现在都执行完成
@@ -245,17 +235,44 @@
                 }))
                 .catch((err) => {
                     console.error(err)
-                });*/
+                });
         },
-        computed: {
+        computed: {//计算属性
 
         },
         methods: {
             doSomethingFromSlide (data) {/*从slide子组件传来的数据*/
-              // console.log(data +'doSomethingFromSlide run!')
+                // console.log(data +'doSomethingFromSlide run!')
             }
         },
         mounted(){
+
+            // 基于准备好的dom，初始化echarts图表
+            this.myChart = echarts.init(document.getElementById('charts'));
+            let option = {
+                title: {
+                    text: '销售统计'
+                },
+                tooltip: {
+
+                },
+                legend: {
+                    data:['成交量(次)']
+                },
+                xAxis: {
+                    data: ["2019/12/01","2019/12/02","2019/12/03","2019/12/04","2019/12/05","2019/12/06","2019/12/07"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '成交量(次)',
+                    type: 'bar',
+                    data: [490, 200, 360, 100, 100, 200,360]
+                }]
+            };
+
+            // 为echarts对象加载数据
+            this.myChart.setOption(option);
+
         },
 
     }
@@ -322,6 +339,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: 30px;
         .index-right-item{
           width: calc(50% - 15px);
           background-color: #ffffff;
@@ -385,6 +403,13 @@
             }
           }
         }
+      }
+      #charts{
+        width: 100%;
+        height: 400px;
+        background-color: #ffffff;
+        padding:  25px;
+        box-sizing: border-box;
       }
     }
   }

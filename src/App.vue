@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+    <!--路由匹配到的组件将显示在这里-->
+    <router-view></router-view>
+    <!--路由匹配到的组件将显示在这里-->
   </div>
 </template>
 

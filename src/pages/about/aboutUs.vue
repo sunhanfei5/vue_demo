@@ -4,7 +4,7 @@
     v-on:leave="leave"
     v-bind:css="false">
     <section class="about-us">
-<!--      <div class="wout"></div>-->
+  <!--<div class="wout"></div>-->
       <div class="about-title">
         <h2>公司介绍</h2>
         <span>ABOUT US</span>
@@ -144,13 +144,13 @@
                         complete: function () {
                             _this.animateInit()
 
-                            // IE9はオープニングスキップ
+                            // IE 9在开场跳过
                             if(com.isIE9())
                             {
                                 _this.setCarousel(1);
                                 return;
                             }
-                            // ハッシュ確認して出し分け
+                            // 确认散列后分出
                             var urlHash = decodeURIComponent(location.hash)
                             if (urlHash.indexOf('#kv=') !== -1) {
                                 var _str = urlHash.split('#kv=')
@@ -203,7 +203,7 @@
                 else
                 {
                     _n = 1
-                    // 白くフラッシュ
+                    // 白色闪光灯
                     $('.wout').velocity({opacity: 1},
                         {
                             duration: 100,
@@ -214,7 +214,7 @@
                                 $('.wout').remove()
                             }})
                 }
-
+                // 第一屏幻灯片
                 _this.swiper = new Swiper('.swTop', {
                     pagination: '.swiper-pagination',
                     loop:true,
